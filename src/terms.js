@@ -101,6 +101,8 @@
     'hentai en espanol', 'hentai sub espanol', 'anime porno', 'comic porno', 'comics porno', 'relatos eroticos',
     'masaje erotico', 'masajes eroticos', 'contenido adulto', 'contenido +18', 'solo mayores de edad', 'solo adultos',
     'contenido potencialmente sensible',
+    // cosplay (tudo)
+    'cosplay', 'cosplays', 'cosplayer', 'cosplayers', 'コスプレ', '코스프레', 'cosplayando',
   ];
 
   // FORTES como pedaço de palavra (pega domínios, hashtags e palavras compostas).
