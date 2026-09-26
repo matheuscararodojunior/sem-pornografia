@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sem Pornografia</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🚫 Sem Pornografia</h1>
+      <label class="toggle"><input type="checkbox" id="enabled" /> Ativado</label>
+    </header>
+    <p id="count" class="muted"></p>
+
+    <fieldset>
+      <legend>Proteções</legend>
+      <label><input type="checkbox" id="blockDomains" /> Bloquear <span id="domainCount"></span> sites pornôs conhecidos</label>
+      <label><input type="checkbox" id="safeSearch" /> SafeSearch forçado (Google, Bing, DuckDuckGo) + Modo Restrito no YouTube</label>
+      <label><input type="checkbox" id="blockPages" /> Bloquear qualquer página cujo conteúdo seja pornográfico</label>
+      <p class="muted">No YouTube, Google, Instagram, Reddit, X e TikTok os vídeos/posts/resultados adultos somem sempre que a extensão está ativa.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Palavras</legend>
+      <p class="muted">Lista padrão: <span id="termCount"></span> termos em português, inglês, espanhol, japonês e coreano.</p>
+      <details>
+        <summary>Ver lista padrão</summary>
+        <pre id="termList"></pre>
+      </details>
+      <label class="block">
+        Bloquear também (um termo por linha)
+        <textarea id="extraTerms" rows="3"></textarea>
+      </label>
+      <label class="block">
+        Exceções — trechos que nunca contam (um por linha)
+        <textarea id="allowTerms" rows="3"></textarea>
+      </label>
+      <label class="block">
+        Sites liberados — nunca bloquear (um domínio por linha, ex.: <code>exemplo.com</code>)
+        <textarea id="allowSites" rows="3"></textarea>
+      </label>
+    </fieldset>
+
+    <p id="status" class="muted"></p>
+    <script src="src/terms.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

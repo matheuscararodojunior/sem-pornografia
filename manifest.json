@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Sem Pornografia",
+  "version": "1.0.0",
+  "description": "Bloqueia pornografia e hentai: ~48 mil sites, SafeSearch forçado e filtro de termos em PT/EN/ES/JA/KO no YouTube, Google, Instagram, Reddit, X, TikTok e qualquer site.",
+  "permissions": ["storage", "declarativeNetRequest"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Sem Pornografia",
+    "default_popup": "options.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "block", "enabled": true, "path": "rules/block.json" },
+      { "id": "safesearch", "enabled": true, "path": "rules/safesearch.json" }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/terms.js", "src/content.js"],
+      "css": ["src/content.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    { "resources": ["blocked.html", "blocked.js", "options.css"], "matches": ["<all_urls>"] }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "sem-pornografia@local",
+      "strict_min_version": "128.0"
+    }
+  }
+}

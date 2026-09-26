@@ -1,0 +1,190 @@
+[
+ {
+  "id": 1,
+  "priority": 2,
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "urlFilter": "safe=active",
+   "requestDomains": [
+    "google.com",
+    "google.com.br",
+    "google.pt",
+    "google.es",
+    "google.com.mx",
+    "google.com.ar",
+    "google.cl",
+    "google.com.co",
+    "google.com.pe",
+    "google.co.jp",
+    "google.co.kr",
+    "google.co.uk",
+    "google.ca",
+    "google.de",
+    "google.fr",
+    "google.it"
+   ],
+   "resourceTypes": [
+    "main_frame"
+   ]
+  }
+ },
+ {
+  "id": 2,
+  "priority": 1,
+  "action": {
+   "type": "redirect",
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "addOrReplaceParams": [
+       {
+        "key": "safe",
+        "value": "active"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "condition": {
+   "regexFilter": "^https://[^/]+/(search|images|webhp)",
+   "requestDomains": [
+    "google.com",
+    "google.com.br",
+    "google.pt",
+    "google.es",
+    "google.com.mx",
+    "google.com.ar",
+    "google.cl",
+    "google.com.co",
+    "google.com.pe",
+    "google.co.jp",
+    "google.co.kr",
+    "google.co.uk",
+    "google.ca",
+    "google.de",
+    "google.fr",
+    "google.it"
+   ],
+   "resourceTypes": [
+    "main_frame"
+   ]
+  }
+ },
+ {
+  "id": 3,
+  "priority": 2,
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "urlFilter": "adlt=strict",
+   "requestDomains": [
+    "bing.com"
+   ],
+   "resourceTypes": [
+    "main_frame"
+   ]
+  }
+ },
+ {
+  "id": 4,
+  "priority": 1,
+  "action": {
+   "type": "redirect",
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "addOrReplaceParams": [
+       {
+        "key": "adlt",
+        "value": "strict"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "condition": {
+   "regexFilter": "^https://[^/]+/(search|images/search|videos/search)",
+   "requestDomains": [
+    "bing.com"
+   ],
+   "resourceTypes": [
+    "main_frame"
+   ]
+  }
+ },
+ {
+  "id": 5,
+  "priority": 2,
+  "action": {
+   "type": "allow"
+  },
+  "condition": {
+   "urlFilter": "kp=1",
+   "requestDomains": [
+    "duckduckgo.com"
+   ],
+   "resourceTypes": [
+    "main_frame"
+   ]
+  }
+ },
+ {
+  "id": 6,
+  "priority": 1,
+  "action": {
+   "type": "redirect",
+   "redirect": {
+    "transform": {
+     "queryTransform": {
+      "addOrReplaceParams": [
+       {
+        "key": "kp",
+        "value": "1"
+       }
+      ]
+     }
+    }
+   }
+  },
+  "condition": {
+   "regexFilter": "^https://duckduckgo\\.com/\\?",
+   "requestDomains": [
+    "duckduckgo.com"
+   ],
+   "resourceTypes": [
+    "main_frame"
+   ]
+  }
+ },
+ {
+  "id": 7,
+  "priority": 1,
+  "action": {
+   "type": "modifyHeaders",
+   "requestHeaders": [
+    {
+     "header": "YouTube-Restrict",
+     "operation": "set",
+     "value": "Moderate"
+    }
+   ]
+  },
+  "condition": {
+   "requestDomains": [
+    "youtube.com",
+    "youtubei.googleapis.com",
+    "youtube-nocookie.com"
+   ],
+   "resourceTypes": [
+    "main_frame",
+    "sub_frame",
+    "xmlhttprequest"
+   ]
+  }
+ }
+]
